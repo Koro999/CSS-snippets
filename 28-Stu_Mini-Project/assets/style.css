@@ -1,0 +1,103 @@
+*:root{
+    --main-gradient-colors: rgba(232, 102,236, 0.3) 0%, rgba(232, 102,236, 0.6) 100%;
+    --main-header-colors: rgb(214, 1, 214);
+    --main-card-font-colors:rgb(214, 1, 214);
+    --main-bg-color: rgb(45, 45, 51);
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--main-bg-color);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*background-image: linear-gradient(var(--main-gradient-colors));*/
+}
+
+.main-header{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    color:white;
+}
+
+.main-header p{
+    font-size: 12px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 30px;
+    gap: 30px;
+}
+
+h1,h2,h3 {
+    color: var(--main-header-colors);
+    text-align: center;
+}
+
+
+.card { /*Doing this really helps contain and visualize the boxes*/
+    flex: 1 0 30%; /*setting this value to manage the number of items per row based on %, decimals not working?*/
+    padding: 10px;
+    text-align: left;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: white;
+    gap: 10%;
+}
+
+.card-header {
+    position:relative;
+    margin-top: -20px;
+    border: 2px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: var(--main-bg-color);
+}
+
+.card summary {
+    color: var(--main-card-font-colors);
+    font-size: 12px;
+}
+.code-card{
+ color: white;
+ padding-left: 10px;
+ background-image: linear-gradient(var(--main-gradient-colors));
+ border-radius: 10px;
+}
+
+.card-header, .code-card { /* creates a transition*/
+    border-radius: 8px; /*this sets a starting radius that transitions into w.e I have set I assume?*/
+    transition: all 0.5s ease-in-out;
+}
+
+.code-card:hover, .card-header:hover { /* glow on hover*/
+    box-shadow: inset 0px 0px 8px rgba(232, 102, 236, 1), 0 0 15px rgba(232, 102, 236, 1);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+/*Once width of the screen goes under 992px do this*/
+@media only screen and (max-width: 992px) {
+    .card {
+        flex: 1 0 50%;
+    }
+  }
+
+/*Once width of the screen goes under 768px do this*/
+@media only screen and (max-width: 768px) {
+    .card {
+        flex: 1 0 100%;
+    }
+}
